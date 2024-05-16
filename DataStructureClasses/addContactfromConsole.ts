@@ -1,14 +1,14 @@
 import PromptSync from "prompt-sync";
-import PhoneBook from "./addContact";
+import PhoneBook from "./AddContactUsingObject";
 const prompt =PromptSync();
 function main(): void {
     const phoneBook = new PhoneBook();
     while (true) {
         console.log("\nChoose operation:");
-        console.log("1. Add Contact");
-        console.log("2. Update Contact");
-        console.log("3. Delete Contact");
-        console.log("4. Display Contacts");
+        console.log("1. Add Contact to phoneBook");
+        console.log("2. Update Contact from Phonebook");
+        console.log("3. Delete Contact from PhoneBook");
+        console.log("4. Display Contacts from Phonebook");
         console.log("5. Exit");
         const choice = prompt("Enter your choice: ");
 
@@ -31,7 +31,7 @@ function main(): void {
                 phoneBook.deleteContact(nameToDelete);
                 break;
             case "4":
-                phoneBook.displayContacts();
+                phoneBook.displayContact();
                 break;
             case "5":
                 console.log("Exiting...");
