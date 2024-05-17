@@ -10,19 +10,19 @@ while (true) {
 
     switch (choice) {
         case 1:
-            const nameToAdd = prompt("Enter name: ");
-            const phoneNumberToAdd = prompt("Enter phone number: ");
-            const alterPhonenumberToAdd =prompt('Enter alternate phone number')
+            const nameToAdd:string = prompt("Enter name: ");
+            const phoneNumberToAdd:String = prompt("Enter phone number: ");
+            const alterPhonenumberToAdd:String =prompt('Enter alternate phone number')
             phoneBook.addContact(nameToAdd, phoneNumberToAdd,alterPhonenumberToAdd);
             break;
         case 2:
-            const nameToUpdate = prompt("Enter name to update: ");
-            const newPhoneNumber = prompt("Enter new phone number: ");
-            const alternewPhonenumberToAdd =prompt('Enter alternate phone number')
+            const nameToUpdate:string = prompt("Enter name to update: ");
+            const newPhoneNumber:string = prompt("Enter new phone number: ");
+            const alternewPhonenumberToAdd:string =prompt('Enter alternate phone number')
             phoneBook.updateContact(nameToUpdate, newPhoneNumber,alternewPhonenumberToAdd);
             break;
         case 3:
-            const nameToDelete = prompt("Enter name to delete: ");
+            const nameToDelete:string = prompt("Enter name to delete: ");
             phoneBook.deleteContact(nameToDelete);
             break;
         case 4:
@@ -30,12 +30,12 @@ while (true) {
             break;
         case 5:
             console.log("Exiting...");
-        
         default:
             console.log("Invalid choice!");
         }
-        } catch (error) {
+        }
+    catch (error) {
              console.error("An error occurred:", error.message);
         }
-        }
+ }
      
