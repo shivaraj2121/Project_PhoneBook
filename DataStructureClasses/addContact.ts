@@ -14,15 +14,15 @@ export default class PhoneBook {
     }
     updateContact(name: string, newPhoneNumber: String, alterNatenewPhoneNumberToAdd: String) {
         try{
-        const contact = this.findContact(name);
-        if (contact) {
+            const contact = this.findContact(name);
+         if (contact) {
             contact.phoneNumber = newPhoneNumber;
             console.log(`Contact "${name}" updated successfully.`);
         }if(contact)
             {
-                contact.alterPhoneNumber=alterNatenewPhoneNumberToAdd;
-                console.log(`cotnact "${name}" updated successfully`)
-            }
+            contact.alterPhoneNumber=alterNatenewPhoneNumberToAdd;
+            console.log(`cotnact "${name}" updated successfully`)
+        }
        }catch(error){
             throw new ContactNotFoundError(error.message)
        }
