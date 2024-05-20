@@ -1,4 +1,5 @@
 import  promptSync from 'prompt-sync'
+import { InvalidContactDataError } from './customErrorHandle';
 import PhoneBook from './addContact';
 const prompt =promptSync();
 const phoneBook = new PhoneBook();
@@ -30,12 +31,12 @@ while (true) {
             break;
         case 5:
             console.log("Exiting...");
+        
         default:
             console.log("Invalid choice!");
         }
+        }catch (error) {
+            throw new InvalidContactDataError(error.message);
         }
-    catch (error) {
-             console.error("An error occurred:", error.message);
-        }
-}
+    }
      
