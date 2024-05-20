@@ -1,10 +1,10 @@
-import {ContactNotFoundError,ContactAlreadyExistsError,InvalidContactDataError} from "./error";
+import {ContactNotFoundError,ContactAlreadyExistsError,InvalidContactDataError} from "../DataStructureClasses/customErrorHandle"
 export default class PhoneBook {
     contacts: any[];
     constructor() {
         this.contacts = [];
     }
-    addContact(name: string, phoneNumber: any ,alterPhonenumber:any) {
+    addContact(name: string, phoneNumber: String ,alterPhonenumber:String) {
         try{
             this.contacts.push({ name, phoneNumber ,alterPhonenumber});
             console.log(`Contact "${name}" added successfully.`);
@@ -12,7 +12,7 @@ export default class PhoneBook {
             throw new ContactAlreadyExistsError(error.message)
         }
     }
-    updateContact(name: string, newPhoneNumber: string, alterNatenewPhoneNumberToAdd: string) {
+    updateContact(name: string, newPhoneNumber: String, alterNatenewPhoneNumberToAdd: String) {
         try{
         const contact = this.findContact(name);
         if (contact) {
@@ -30,7 +30,7 @@ export default class PhoneBook {
     deleteContact(name: string) {
         try{
         
-        const index = this.contacts.findIndex((contact: { name: any; }) => contact.name === name);
+        const index = this.contacts.findIndex((contact: { name: String; }) => contact.name === name);
         if (index !== -1) {
             this.contacts.splice(index, 1);
             console.log(`Contact "${name}" deleted successfully.`);
@@ -42,12 +42,11 @@ export default class PhoneBook {
     displayContacts() {
         try{
             console.log("Contacts:");
-            this.contacts.forEach((contact: { name: any; phoneNumber: any; alterPhoneNumber:any}) => {
+            this.contacts.forEach((contact: { name: String; phoneNumber: number; alterPhoneNumber:number}) => {
             console.log(`${contact.name}: ${contact.phoneNumber}:${contact.alterPhoneNumber}`);
         });
         }catch(error){
             throw new ContactNotFoundError(error.message)
-
       }
     }
     findContact(name: any) {
